@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Board from './Components/Board';
+import Score from './Components/Score';
 
 class App extends Component {
 
@@ -26,10 +27,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Board 
-          playerOneWon={() => this.playerWon('one')}
-          playerTwoWon={() => this.playerWon('two')}/>
+      <div >
+        <h1 className="display-1 text-center">Tic-Tac-Toe</h1>
+        <div className="app">
+          <Board 
+            playerOneWon={() => this.playerWon('one')}
+            playerTwoWon={() => this.playerWon('two')}/>
+          <br />
+          <Score 
+            playerOnePoints={this.state.playerOnePoints}
+            playerTwoPoints={this.state.playerTwoPoints}/>
+        </div>
       </div>
     );
   }
