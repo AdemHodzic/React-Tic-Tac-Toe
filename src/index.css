@@ -1,0 +1,16 @@
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  font-family: sans-serif;
+  font-size: 8rem;
+}
+
+
+.row div {
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid #111;
+  width: 12rem;
+  height: 12rem;
+}
