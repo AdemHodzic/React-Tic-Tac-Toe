@@ -1,1 +1,1 @@
-## Classical game of TicTacToe I made in React##
+## Classical game of TicTacToe I made in React
