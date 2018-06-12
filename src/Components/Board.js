@@ -28,6 +28,7 @@ class Board extends Component {
     this.toggle = this.toggle.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.checkForWinners = this.checkForWinners.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
 
@@ -49,12 +50,7 @@ class Board extends Component {
         } else {
           this.props.playerTwoWon();
         }
-        const initialBoard =  [
-          [' ',' ',' '],
-          [' ',' ',' '],
-          [' ',' ',' ']
-        ];
-        this.setState({board: initialBoard.slice()});
+        this.reset();
       }
       this.toggle();
     }
@@ -78,6 +74,15 @@ class Board extends Component {
       }
     }
     return winner;
+  }
+
+  reset() {
+    const initialBoard =  [
+      [' ',' ',' '],
+      [' ',' ',' '],
+      [' ',' ',' ']
+    ];
+    this.setState({board: initialBoard.slice()});
   }
 
   render() {

@@ -4,15 +4,21 @@ import './App.css';
 
 import Board from './Components/Board';
 import Score from './Components/Score';
+import Options from './Components/Options';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
+    
     this.state = {
       playerOnePoints: 0,
       playerTwoPoints: 0,
     }
+
+    this.reset = this.reset.bind(this);
+
+    this.board = React.createRef();
   }
 
   playerWon(player) {
@@ -25,6 +31,11 @@ class App extends Component {
     }
   }
 
+  reset() {
+    this.setState({playerOnePoints: 0, playerTwoPoints: 0});
+    this.board.current.reset();
+  }
+
   render() {
     return (
       <div >
@@ -32,11 +43,13 @@ class App extends Component {
         <div className="app">
           <Board 
             playerOneWon={() => this.playerWon('one')}
-            playerTwoWon={() => this.playerWon('two')}/>
+            playerTwoWon={() => this.playerWon('two')}
+            ref = {this.board}/>
           <br />
           <Score 
             playerOnePoints={this.state.playerOnePoints}
             playerTwoPoints={this.state.playerTwoPoints}/>
+          <Options reset={this.reset} />
         </div>
       </div>
     );
