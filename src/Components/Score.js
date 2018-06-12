@@ -14,14 +14,16 @@ class Score extends Component {
     return (
       <div className="score">
         <table className="table">
-          <tr>
-            <td>Player 1</td>
-            <td>Player 2</td>
-          </tr>
-          <tr>
-            <td>{playerOnePoints}</td>
-            <td>{playerTwoPoints}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Player 1</td>
+              <td>Player 2</td>
+            </tr>
+            <tr>
+              <td>{playerOnePoints}</td>
+              <td>{playerTwoPoints}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     )

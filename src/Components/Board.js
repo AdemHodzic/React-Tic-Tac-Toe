@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 class Board extends Component {
 
+  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -21,11 +23,6 @@ class Board extends Component {
         [0,4,8],
         [2,4,6],
       ],
-      initialBoard: [
-        [' ',' ',' '],
-        [' ',' ',' '],
-        [' ',' ',' ']
-      ]
     }
 
     this.toggle = this.toggle.bind(this);
@@ -52,7 +49,12 @@ class Board extends Component {
         } else {
           this.props.playerTwoWon();
         }
-        this.setState({board: this.state.initialBoard});
+        const initialBoard =  [
+          [' ',' ',' '],
+          [' ',' ',' '],
+          [' ',' ',' ']
+        ];
+        this.setState({board: initialBoard.slice()});
       }
       this.toggle();
     }
@@ -60,6 +62,7 @@ class Board extends Component {
 
   checkForWinners() {
     const combinedBoard = this.state.board.join(',').split(',');
+    console.log('Board', combinedBoard)
     let winner = true;
 
     for (const combo of this.state.winCombo) {
