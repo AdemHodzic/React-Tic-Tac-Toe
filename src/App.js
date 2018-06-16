@@ -39,17 +39,25 @@ class App extends Component {
   render() {
     return (
       <div >
-        <h1 className="display-1 text-center">Tic-Tac-Toe</h1>
-        <div className="app">
-          <Board 
-            playerOneWon={() => this.playerWon('one')}
-            playerTwoWon={() => this.playerWon('two')}
-            ref = {this.board}/>
-          <br />
-          <Score 
-            playerOnePoints={this.state.playerOnePoints}
-            playerTwoPoints={this.state.playerTwoPoints}/>
-          <Options reset={this.reset} />
+        <div className="container">
+          <h1 className="display-1 text-center">Tic-Tac-Toe</h1>
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="app">
+                <Board 
+                  playerOneWon={() => this.playerWon('one')}
+                  playerTwoWon={() => this.playerWon('two')}
+                  ref = {this.board}/>
+                <br />
+              </div>
+            </div>
+            <div className="col-sm-6">
+              <Score 
+                playerOnePoints={this.state.playerOnePoints}
+                playerTwoPoints={this.state.playerTwoPoints}/>
+              <Options reset={this.reset} />
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -57,3 +65,11 @@ class App extends Component {
 }
 
 export default App;
+
+/**
+ * <Score 
+              playerOnePoints={this.state.playerOnePoints}
+              playerTwoPoints={this.state.playerTwoPoints}/>
+            <Options reset={this.reset} />
+            
+ */
