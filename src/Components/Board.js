@@ -54,18 +54,20 @@ class Board extends Component {
       }
       this.toggle();
     }
+    const combinedBoard = this.state.board.join(',').split(',')
+    if (combinedBoard.filter(e => e === ' ').length === 0) {
+      this.reset()
+    }    
   }
 
   checkForWinners() {
     const combinedBoard = this.state.board.join(',').split(',');
-    console.log('Board', combinedBoard)
     let winner = true;
 
     for (const combo of this.state.winCombo) {
       winner = true;
       for (const index of combo) {
         if (combinedBoard[index] !== this.state.player) {
-          console.log(combinedBoard[index])
           winner = false;
         }
       }

@@ -8,7 +8,7 @@ class Options extends Component {
   render() {
     return (
       <div className="options">
-        <button classname="btn btn-outline-success" onClick={this.props.reset}>R E S E T</button>
+        <button  onClick={this.props.reset}>R E S E T</button>
       </div>
     );
   }
